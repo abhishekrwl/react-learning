@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import TaskForm from './TaskForm';
 import TasksList from './TasksList';
-
-type TasksProps = {
-  task: string;
-  isDone: boolean;
-};
+import { TasksProps } from './TaskList';
 
 function TodoList() {
   const [tasks, setTasks] = useState<TasksProps[]>([]);

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-
-type TasksProps = {
-  task: string;
-  isDone: boolean;
-};
+import Input from './elements/Input';
+import Button from './elements/Button';
+import { TasksProps } from './TaskList';
 
 type TaskFormProps = {
   setTasks: React.Dispatch<React.SetStateAction<TasksProps[]>>;
@@ -20,8 +18,11 @@ const TaskForm: React.FC<TaskFormProps> = ({
     setTask(e.target.value);
   };
 
-  const handleTaskSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleTaskSubmit = () => {
+    let allTasks: TasksProps[] = tasks;
+    let taskId = allTasks.length > 0 ? allTasks[allTasks.length - 1].id + 1 : 1;
     const taskData = {
+      id: taskId,
       task,
       isDone: false,
     };
@@ -33,19 +34,18 @@ const TaskForm: React.FC<TaskFormProps> = ({
     <>
       <div>
         <div className='p-4 flex justify-between'>
-          <input
-            className='p-2 border rounded focus:outline-none'
+          <Input
             value={task}
-            name='task'
-            placeholder='Enter your task here'
             onChange={(e) => handleInput(e)}
+            name={'task'}
+            placeHolder={'Enter your task here'}
           />
-          <button
-            className='bg-blue-500 p-2 rounded text-white hover:bg-white hover:text-blue-500 border border-blue-500'
-            onClick={(e) => handleTaskSubmit(e)}
+          <Button
+            className='bg-blue-500 text-white hover:bg-white hover:text-blue-500 border border-blue-500'
+            onClick={handleTaskSubmit}
           >
             Add Task
-          </button>
+          </Button>
         </div>
       </div>
     </>
