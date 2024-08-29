@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './elements/Input';
 import Button from './elements/Button';
-import { TasksProps } from './TaskList';
+import { TasksProps } from '../types/TaskList';
 
 type TaskFormProps = {
   setTasks: React.Dispatch<React.SetStateAction<TasksProps[]>>;

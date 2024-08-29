@@ -19,7 +19,9 @@ const Login: React.FC<LoginProps> = ({ setUser }: LoginProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const user = users.find((user) => user.username === credentials.username);
+    const user: User | undefined = users?.find(
+      ({ username }) => username === credentials.username
+    );
     if (user && user.password === credentials.password) {
       setUser(user);
     } else {

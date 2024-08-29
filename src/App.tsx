@@ -15,7 +15,8 @@ function App() {
   return (
     <>
       <div className='App'>
-        {!user ? <Login setUser={setUser} /> : <TodoList />}
+        {/* {!user ? <Login setUser={setUser} /> : <TodoList />} */}
+        <TodoList />
       </div>
     </>
   );
