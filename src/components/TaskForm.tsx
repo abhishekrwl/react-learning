@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Input from './elements/Input';
 import Button from './elements/Button';
 import { TasksProps } from '../types/TaskList';
+import { TaskContext } from '../context/TaskContext';
 
-type TaskFormProps = {
-  setTasks: React.Dispatch<React.SetStateAction<TasksProps[]>>;
-  tasks: TasksProps[];
-};
-
-const TaskForm: React.FC<TaskFormProps> = ({
-  setTasks,
-  tasks,
-}: TaskFormProps) => {
+const TaskForm: React.FC = () => {
+  const { setTasks, tasks } = useContext(TaskContext);
   const [task, setTask] = useState('');
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {

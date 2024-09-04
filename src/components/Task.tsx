@@ -48,7 +48,6 @@ const Task: React.FC<ParentProps> = ({
 
   return (
     <>
-      {/* <div key={indexValue}> */}
       <div className='flex border border-t-0 border-l-0 border-r-0 text-left p-4 justify-between'>
         {!editField ? (
           <>
@@ -98,7 +97,6 @@ const Task: React.FC<ParentProps> = ({
           </>
         )}
       </div>
-      {/* </div> */}
     </>
   );
 };

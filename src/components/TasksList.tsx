@@ -1,12 +1,11 @@
 import Task from './Task';
 import { TasksProps } from '../types/TaskList';
+import { TaskContext } from '../context/TaskContext';
+import { useContext } from 'react';
 
-type ParentProps = {
-  tasks: TasksProps[];
-  setTasks: React.Dispatch<React.SetStateAction<TasksProps[]>>;
-};
+const TasksList: React.FC = () => {
+  const { tasks, setTasks } = useContext(TaskContext);
 
-const TasksList: React.FC<ParentProps> = ({ tasks, setTasks }) => {
   const handleCheckboxChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     task: TasksProps
